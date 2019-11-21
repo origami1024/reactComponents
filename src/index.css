@@ -5,9 +5,42 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;
+  color: black;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@font-face {
+  font-family: Circle;
+  font-style: normal;
+  font-weight: 550;
+  src: url(assets/fonts/CRC55.otf) format('truetype');
+}
+@font-face {
+  font-family: Circle;
+  font-style: bold;
+  font-weight: 700;
+  src: url(assets/fonts/Circe-Bold.otf) format('truetype');
+}
+@font-face {
+  font-family: Circle;
+  font-style: bolder;
+  font-weight: 800;
+  src: url(assets/fonts/Circe-ExtraBold.otf) format('truetype');
+}
+@font-face {
+  font-family: Circle;
+  font-style: light;
+  font-weight: 350;
+  src: url(assets/fonts/CRC35.otf) format('truetype');
+}
+@font-face {
+  font-family: Circle;
+  font-style: lighter;
+  font-weight: 250;
+  src: url(assets/fonts/CRC25.otf) format('truetype');
 }
