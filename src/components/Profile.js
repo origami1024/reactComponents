@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Icons from './../assets/Icons.js'
 
-
-const UPWrapper = styled.div`
+const Wrapper = styled.div`
   --wrapperBG: #FCFCFC;
-  /* --wrapperBG: red; */
   --innerBorder: #E1E1E1;
   --mainText: #5A5A5A;
   --tagText: #757575;
@@ -20,14 +19,13 @@ const UPWrapper = styled.div`
   font-family: Circle, sans-serif;
   font-weight: normal;
   background-color: var(--wrapperBG);
-  /* border: 1px solid var(--innerBorder); */
   box-shadow: 0px 1px 5px rgba(68, 68, 68, 0.27);
   @media (max-width: 500px) {
     flex-direction: column;
     border-radius: 45px;
   }
 `
-  const UPMain = styled.div`
+  const Main = styled.div`
     display: flex;
     align-items: center;
     min-width: 210px;
@@ -42,7 +40,7 @@ const UPWrapper = styled.div`
       width: auto;
     }
   `
-    const UPMainPhoto = styled.div`
+    const MainPhoto = styled.div`
       background-image: url(${props => props.imgPath});
       background-size: 100% 100%;
       width: 78px;
@@ -50,7 +48,7 @@ const UPWrapper = styled.div`
       border-radius: 100%;
       margin-right: 10px;
     `
-    const UPMainContent = styled.div`
+    const MainContent = styled.div`
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -68,7 +66,7 @@ const UPWrapper = styled.div`
       }
     `
 
-  const UPTags = styled.div`
+  const Tags = styled.div`
     border: 0px solid var(--innerBorder);
     display: flex;
     flex: 1;
@@ -83,7 +81,7 @@ const UPWrapper = styled.div`
       padding: 15px 0px;
     }
   `
-    const UPTag = styled.div`
+    const Tag = styled.div`
       display: flex;
       padding: 0;
       padding-left: 7px;
@@ -97,7 +95,7 @@ const UPWrapper = styled.div`
       cursor: pointer;
       height: 25px;
     `
-    const UPTagBadge = styled.span`
+    const TagBadge = styled.span`
       background-color: var(--tagBadgeBG);
       color: var(--tagBadgeText);
       font-size: 12px;
@@ -112,7 +110,7 @@ const UPWrapper = styled.div`
     `
     
 
-  const UPControls = styled.div`
+  const Controls = styled.div`
     min-width: 70px;
     width: 70px;
     display: flex;
@@ -123,8 +121,8 @@ const UPWrapper = styled.div`
       padding: 15px 0;
     }
   `
-    const UPModalBtn = styled.button`
-      background-image: url('./assets/icons/flag.png');
+    const ModalBtn = styled.button`
+      background-image: url(${Icons['profile-flag']});
       background-repeat: no-repeat;
       background-position: center;
       border-radius: 100%;
@@ -138,31 +136,31 @@ const UPWrapper = styled.div`
       box-shadow: 0px 0px 4px #FC6363;
       transition-duration: 0.3s;
       &&:hover{
-        background-image: url('./assets/icons/flag-full.png');
+        background-image: url(${Icons['profile-flag-full']});
       }
     `
 
 
 
-function UserProfile(props) {
-  console.log(props)
+function Profile(props) {
+  //console.log(Icons['profile-flag'])
   return (
-    <UPWrapper>
-      <UPMain>
-        <UPMainPhoto imgPath={props.user.photoUrl}></UPMainPhoto>
-        <UPMainContent>
+    <Wrapper>
+      <Main>
+        <MainPhoto imgPath={props.user.photoUrl}></MainPhoto>
+        <MainContent>
           <h3>{props.user.nick}</h3>
           <p>{props.user.age} лет</p>
           <p>г. {props.user.city}</p>
-        </UPMainContent>
-      </UPMain>
-      <UPTags>
-  {props.user.tags.map((tag, index) => <UPTag key={index}>{tag.label}<UPTagBadge>{tag.content.text ? tag.content.text : tag.content.icon}</UPTagBadge></UPTag>)}
-      </UPTags>
-      <UPControls>
-        <UPModalBtn></UPModalBtn>
-      </UPControls>
-    </UPWrapper>
+        </MainContent>
+      </Main>
+      <Tags>
+  {props.user.tags.map((tag, index) => <Tag key={index}>{tag.label}<TagBadge>{tag.content.text ? tag.content.text : tag.content.icon}</TagBadge></Tag>)}
+      </Tags>
+      <Controls>
+        <ModalBtn></ModalBtn>
+      </Controls>
+    </Wrapper>
   );
 }
-export default UserProfile;
+export default Profile;

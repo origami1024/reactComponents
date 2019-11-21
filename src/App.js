@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import styled from 'styled-components'
 import UserFilter from './components/UserFilter.js'
-import UserProfile from './components/UserProfile.js'
+import Profile from './components/Profile.js'
 
 const Button = styled.button`
   cursor: pointer;
@@ -107,8 +107,8 @@ class App extends React.Component {
         <main>
           <Button onClick={this.test1}>Not working button</Button>
           <div className="flex-columned">
-          <UserProfile user={this.state.user1}></UserProfile>
-          <UserProfile user={this.state.user2}></UserProfile>
+          <Profile user={this.state.user1}></Profile>
+          <Profile user={this.state.user2}></Profile>
           </div>
         </main>
       </div>
