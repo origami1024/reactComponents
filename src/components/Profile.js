@@ -2,6 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Icons from './../assets/Icons.js'
 
+let idToColorTable = {
+  1: '#5EDE82',
+  5: '#DE9C5E',
+  6: '#B55EDE',
+}
+
 const Wrapper = styled.div`
   --wrapperBG: #FCFCFC;
   --innerBorder: #E1E1E1;
@@ -95,7 +101,7 @@ const Wrapper = styled.div`
       cursor: pointer;
       height: 25px;
     `
-    const TagBadge = styled.span`
+    const TagTxtBadge = styled.span`
       background-color: var(--tagBadgeBG);
       color: var(--tagBadgeText);
       font-size: 12px;
@@ -107,6 +113,19 @@ const Wrapper = styled.div`
       min-width: 25px;
       box-sizing: border-box;
       text-align: center;
+    `
+    const TagIcoBadge = styled.span`
+      background-color: ${props => props.bgColor};
+      background-image: url(${props => props.bgIcon});
+      background-repeat: no-repeat;
+      background-position: 50%;
+      
+      border-radius: 999px;
+      margin-left: 5px;
+      line-height: 25px;
+      min-width: 25px;
+      width: 25px;
+      box-sizing: border-box;
     `
     
 
@@ -125,6 +144,7 @@ const Wrapper = styled.div`
       background-image: url(${Icons['profile-flag']});
       background-repeat: no-repeat;
       background-position: center;
+      background-size: 50%;
       border-radius: 100%;
       border: 0;
       width: 53px;
@@ -143,7 +163,6 @@ const Wrapper = styled.div`
 
 
 function Profile(props) {
-  //console.log(Icons['profile-flag'])
   return (
     <Wrapper>
       <Main>
@@ -155,7 +174,7 @@ function Profile(props) {
         </MainContent>
       </Main>
       <Tags>
-  {props.user.tags.map((tag, index) => <Tag key={index}>{tag.label}<TagBadge>{tag.content.text ? tag.content.text : tag.content.icon}</TagBadge></Tag>)}
+  {props.user.tags.map((tag, index) => <Tag key={index}>{tag.label}{tag.content.text ? <TagTxtBadge>{tag.content.text}</TagTxtBadge> : <TagIcoBadge bgIcon={Icons[tag.content.icon+'-active']} bgColor={idToColorTable[tag.id]}></TagIcoBadge>}</Tag>)}
       </Tags>
       <Controls>
         <ModalBtn></ModalBtn>

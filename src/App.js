@@ -1,33 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import styled from 'styled-components'
-import UserFilter from './components/UserFilter.js'
+//import styled from 'styled-components'
 import Profile from './components/Profile.js'
-
-const Button = styled.button`
-  cursor: pointer;
-  background: transparent;
-  font-size: 16px;
-  border-radius: 3px;
-  color: palevioletred;
-  border: 2px solid palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-  transition: 0.5s all ease-out;
-  &:hover {
-    background-color: palevioletred;
-    color: white;
-  }
-`;
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      brand: "Ford",
-      l: [1,2,3,4,5,6],
-      appScreen: 'users-page-users',
       user1: {
         nick: 'Wes Bos',
         age: 30,
@@ -39,7 +18,7 @@ class App extends React.Component {
             label: 'катаю',
             type: 'icon',
             content: {
-              icon: 'somesome'
+              icon: 'tags-helmet'
             }
           }, {
             id: 2,
@@ -55,6 +34,13 @@ class App extends React.Component {
             content: {
               text: '3'
             }
+          }, {
+            id: 6,
+            label: 'нужна помощь',
+            type: 'icon',
+            content: {
+              icon: 'tags-hand'
+            }
           }
         ]
       },
@@ -69,7 +55,7 @@ class App extends React.Component {
             label: 'катаю',
             type: 'icon',
             content: {
-              icon: 'somesome'
+              icon: 'tags-helmet'
             }
           }, {
             id: 2,
@@ -92,20 +78,29 @@ class App extends React.Component {
             content: {
               text: '35'
             }
+          }, {
+            id: 5,
+            label: 'профи',
+            type: 'icon',
+            content: {
+              icon: 'tags-skill'
+            }
+          }, {
+            id: 6,
+            label: 'нужна помощь',
+            type: 'icon',
+            content: {
+              icon: 'tags-hand'
+            }
           }
         ]
       }
     }
   }
-  test1 = () => {
-    let screens = ['users-page-users','users-page-friends', 'request-page-search']
-    this.setState({l: [...this.state.l, Math.random()*25 | 0]})
-  }
   render() {
     return (
       <div className="App">
         <main>
-          <Button onClick={this.test1}>Not working button</Button>
           <div className="flex-columned">
           <Profile user={this.state.user1}></Profile>
           <Profile user={this.state.user2}></Profile>
