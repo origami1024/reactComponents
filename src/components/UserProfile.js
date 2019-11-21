@@ -76,6 +76,7 @@ const UPWrapper = styled.div`
     align-items: start;
     padding: 5px 10px;
     border-right-width: 1px;
+    
     @media (max-width: 500px) {
       border-right: 0;
       border-bottom-width: 1px;
@@ -89,7 +90,7 @@ const UPWrapper = styled.div`
       margin: 3px;
       font-size: 16px;
       color: var(--tagText);
-      background-color: #fff;
+      background-color: #F0F0F0;
       border-radius: 999px;
       border: 1px solid --innerBorder;
       border-right: 0;
@@ -135,7 +136,7 @@ const UPWrapper = styled.div`
       background-color: #FC6363;
       cursor: pointer;
       box-shadow: 0px 0px 4px #FC6363;
-      transition-duration: 0.5s;
+      transition-duration: 0.3s;
       &&:hover{
         background-image: url('./assets/icons/flag-full.png');
       }
@@ -156,7 +157,7 @@ function UserProfile(props) {
         </UPMainContent>
       </UPMain>
       <UPTags>
-  {props.tags.map((tag, index) => <UPTag key={index}>{tag.label}<UPTagBadge>{tag.content.text ? tag.content.text : tag.content.icon}</UPTagBadge></UPTag>)}
+  {props.user.tags.map((tag, index) => <UPTag key={index}>{tag.label}<UPTagBadge>{tag.content.text ? tag.content.text : tag.content.icon}</UPTagBadge></UPTag>)}
       </UPTags>
       <UPControls>
         <UPModalBtn></UPModalBtn>

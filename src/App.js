@@ -21,86 +21,84 @@ const Button = styled.button`
   }
 `;
 
-var l = [1,2,3,4,5]
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       brand: "Ford",
       l: [1,2,3,4,5,6],
+      appScreen: 'users-page-users',
       user1: {
         nick: 'Wes Bos',
         age: 30,
         city: 'Simferopol',
         photoUrl: './../assets/img/usr1.jpg',
-        tags: []
+        tags: [
+          {
+            id: 1,
+            label: 'катаю',
+            type: 'icon',
+            content: {
+              icon: 'somesome'
+            }
+          }, {
+            id: 2,
+            label: 'время',
+            type: 'text',
+            content: {
+              text: '10:30-17:30'
+            }
+          }, {
+            id: 3,
+            label: 'реквестов',
+            type: 'text',
+            content: {
+              text: '3'
+            }
+          }
+        ]
       },
       user2: {
         nick: 'Flavio Copes',
         age: 35,
         city: 'Ufa',
         photoUrl: './../assets/img/usr2.jpg',
-        tags: []
-      },
-      tags1: [
-        {
-          id: 1,
-          label: 'катаю',
-          type: 'icon',
-          content: {
-            icon: 'somesome'
+        tags: [
+          {
+            id: 1,
+            label: 'катаю',
+            type: 'icon',
+            content: {
+              icon: 'somesome'
+            }
+          }, {
+            id: 2,
+            label: 'время',
+            type: 'text',
+            content: {
+              text: '10:30-17:30'
+            }
+          }, {
+            id: 3,
+            label: 'реквестов',
+            type: 'text',
+            content: {
+              text: '3'
+            }
+          }, {
+            id: 4,
+            label: 'что-то текст',
+            type: 'text',
+            content: {
+              text: '35'
+            }
           }
-        }, {
-          id: 2,
-          label: 'время',
-          type: 'text',
-          content: {
-            text: '10:30-17:30'
-          }
-        }, {
-          id: 3,
-          label: 'реквестов',
-          type: 'text',
-          content: {
-            text: '3'
-          }
-        }
-      ],
-      tags2: [
-        {
-          id: 1,
-          label: 'катаю',
-          type: 'icon',
-          content: {
-            icon: 'somesome'
-          }
-        }, {
-          id: 2,
-          label: 'время',
-          type: 'text',
-          content: {
-            text: '10:30-17:30'
-          }
-        }, {
-          id: 3,
-          label: 'реквестов',
-          type: 'text',
-          content: {
-            text: '3'
-          }
-        }, {
-          id: 4,
-          label: 'что-то текст',
-          type: 'text',
-          content: {
-            text: '35'
-          }
-        }
-      ]
+        ]
+      }
     }
   }
   test1 = () => {
-    console.log(l.length)
+    let screens = ['users-page-users','users-page-friends', 'request-page-search']
     this.setState({l: [...this.state.l, Math.random()*25 | 0]})
   }
   render() {
@@ -109,8 +107,8 @@ class App extends React.Component {
         <main>
           <Button onClick={this.test1}>Not working button</Button>
           <div className="flex-columned">
-          <UserProfile user={this.state.user1} tags={this.state.tags1}></UserProfile>
-          <UserProfile user={this.state.user2} tags={this.state.tags2}></UserProfile>
+          <UserProfile user={this.state.user1}></UserProfile>
+          <UserProfile user={this.state.user2}></UserProfile>
           </div>
         </main>
       </div>
