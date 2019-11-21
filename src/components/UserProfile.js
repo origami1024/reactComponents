@@ -20,8 +20,7 @@ const UPWrapper = styled.div`
   font-family: Circle, sans-serif;
   font-weight: normal;
   background-color: var(--wrapperBG);
-  /* border-bottom: 1px solid #44444427; */
-  border: 1px solid var(--innerBorder);
+  /* border: 1px solid var(--innerBorder); */
   box-shadow: 0px 1px 5px rgba(68, 68, 68, 0.27);
   @media (max-width: 500px) {
     flex-direction: column;
@@ -34,7 +33,7 @@ const UPWrapper = styled.div`
     min-width: 210px;
     width: 210px;
     padding-right: 9px;
-    border-right: 2px solid var(--innerBorder);
+    border-right: 1px solid var(--innerBorder);
     @media (max-width: 500px) {
       border-right: 0;
       padding-right: 0;
@@ -76,7 +75,7 @@ const UPWrapper = styled.div`
     flex-wrap: wrap;
     align-items: start;
     padding: 5px 10px;
-    border-right-width: 2px;
+    border-right-width: 1px;
     @media (max-width: 500px) {
       border-right: 0;
       border-bottom-width: 1px;
@@ -124,30 +123,21 @@ const UPWrapper = styled.div`
     }
   `
     const UPModalBtn = styled.button`
+      background-image: url('./assets/icons/flag.png');
+      background-repeat: no-repeat;
+      background-position: center;
       border-radius: 100%;
       border: 0;
       width: 53px;
       height: 53px;
       color: white;
       font-size: 30px;
-      background-color: palevioletred;
+      background-color: #FC6363;
       cursor: pointer;
-      box-shadow: 0 0 5px #faad;
+      box-shadow: 0px 0px 4px #FC6363;
       transition-duration: 0.5s;
       &&:hover{
-        padding-right: 20px;
-        box-shadow: 0 0 5px 3px #f66d;
-      }
-      &&:hover:after{
-        opacity: 1;
-        transform: translateX(0px);
-      }
-      &&:after{
-        opacity: 0;
-        position:absolute;
-        transform: translateX(-10px);
-        content: '\\00bb';
-        transition-duration: 0.5s;
+        background-image: url('./assets/icons/flag-full.png');
       }
     `
 
@@ -169,7 +159,7 @@ function UserProfile(props) {
   {props.tags.map((tag, index) => <UPTag key={index}>{tag.label}<UPTagBadge>{tag.content.text ? tag.content.text : tag.content.icon}</UPTagBadge></UPTag>)}
       </UPTags>
       <UPControls>
-        <UPModalBtn>F</UPModalBtn>
+        <UPModalBtn></UPModalBtn>
       </UPControls>
     </UPWrapper>
   );
